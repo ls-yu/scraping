@@ -36,6 +36,8 @@ for article in articles:
     authors = article.find("span", {"class": "labs-docsum-authors full-authors"}).get_text()
     citation = article.find("span", {"class":"labs-docsum-journal-citation full-journal-citation"}).get_text()
     snippet = article.find("div", {"class": "full-view-snippet"}).get_text()
-    Dict = {'Title': title, 'Authors': authors, 'Citation': citation, 'Snippet': snippet}
+    permalink = article.find("input", {"class": "permalink-text"})["value"]
+    Dict = {'Title': title, 'Authors': authors, 'Citation': citation, 'Snippet': snippet, 'Permalink': permalink}
     my_list.append(Dict)
 #make an excel document
+print(my_list)
